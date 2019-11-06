@@ -35,6 +35,10 @@ You have built hangman for a command line app before.  Now it's time to build it
 - The user should not be able to delete letters
 - When the game ends, the text field clears and the user can choose to start a new game
 
+## Rubric
+
+![hangmanRubric](./hangmanRubric.png)
+
 ## Bonuses
 
 - Implement a single player version that selects a word at random from a given list
