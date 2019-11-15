@@ -98,6 +98,9 @@
                                 <rect key="frame" x="172" y="697" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <segue destination="y9f-KD-rpW" kind="unwind" unwindAction="unwindSegueWithSegue:" id="Yse-Pi-Itf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guess Player1's word " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-Sc-1Fo">
                                 <rect key="frame" x="124" y="126" width="166" height="20.666666666666671"/>
@@ -124,6 +127,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Or-3T-GGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="y9f-KD-rpW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1843.4782608695652" y="135.9375"/>
         </scene>

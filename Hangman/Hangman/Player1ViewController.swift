@@ -28,6 +28,13 @@ class Player1ViewController: UIViewController {
         }
         player2VC.hangman = hangman
     }
+    
+    @IBAction func unwindSegue (segue: UIStoryboardSegue) {
+        guard let player2VC = segue.source as? Player2ViewController else {
+            return
+        }
+        hangman = player2VC.hangman
+    }
 
 }
 
