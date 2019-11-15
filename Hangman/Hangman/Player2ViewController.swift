@@ -16,8 +16,14 @@ class Player2ViewController: UIViewController {
     @IBOutlet weak var hangImage: UIImageView!
     @IBOutlet weak var playAgain: UIButton!
     
+    var hangman = Hangman()
+    var p1VC = Player1ViewController()
+    var arr = [String]()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
+    arr = hangman.getDashedWords(enteredString: hangman.player1Word)
+    dashedLabel.text = arr.joined(separator: " ")
 
     }
 
@@ -25,5 +31,9 @@ class Player2ViewController: UIViewController {
 }
 
 extension Player2ViewController: UITextFieldDelegate {
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == player2Guess {
+            
+        }
+    }
 }

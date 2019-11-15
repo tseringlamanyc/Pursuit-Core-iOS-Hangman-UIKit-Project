@@ -15,22 +15,27 @@ class Player1ViewController: UIViewController {
     @IBOutlet weak var player1WordEnter: UITextField!
     @IBOutlet weak var submitWord: UIButton!
     
+    var hangman = Hangman()
     
     override func viewDidLoad() {
     super.viewDidLoad()
     player1WordEnter.delegate = self
-    
   }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let player2VC = segue.destination as? Player2ViewController else {
             return 
         }
+        player2VC.hangman = hangman
     }
 
 }
 
 extension Player1ViewController: UITextFieldDelegate{
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        hangman.player1Word = player1WordEnter.text ?? ""
+        return true
+    }
 }
 
