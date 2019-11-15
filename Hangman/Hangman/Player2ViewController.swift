@@ -23,23 +23,27 @@ class Player2ViewController: UIViewController {
     override func viewDidLoad() {
     super.viewDidLoad()
     player2Guess.delegate = self
-    arr = hangman.getDashedWords(enteredString: hangman.player1Word)
-    dashedLabel.text = arr.joined(separator: " ")
-
+    hangman.dashedWords = hangman.getDashedWords(enteredString: hangman.player1Word)
+    dashedLabel.text = hangman.dashedWords.joined(separator: " ")
+    hangman.player2Guess = player2Guess.text ?? ""
     }
-
-
+    
 }
 
 extension Player2ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == player2Guess {
         hangman.checkWords(guess: string)
-        return true
+            
+         
     }
+        return true
+}
 }
