@@ -55,20 +55,46 @@ class Player2ViewController: UIViewController {
 extension Player2ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        player2Guess.text? = ""
+        player2Guess.text?.removeAll()
         textField.resignFirstResponder()
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+//        textField.resignFirstResponder()
+        
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if (isBackSpace == -92) {
+//                player2Guess.text? = ""
+//                player2Guess.text?.removeAll()
+                return false
+            } else {
+                if string.count > 1 {
+//                    player2Guess.text? = ""
+//                    player2Guess.text?.removeAll()
+                    return false
+                }
+            }
+        }
+           
         if textField == player2Guess {
-        var chances = hangman.userTries
+        let chances = hangman.userTries
         hangman.checkWords(guess: string)
+            print("here")
+//        player2Guess.text? = ""
+//        player2Guess.text?.removeAll()
+        
         showHang(chances: chances)
         if chances == 6 {
                 welcomeLabel2.text = "GAME OVER!!!"
             }
         dashedLabel.text = hangman.dashedWords.joined(separator: " ")
     }
+//        player2Guess.text? = ""
+//        player2Guess.text?.removeAll()
         return true
 }
 }

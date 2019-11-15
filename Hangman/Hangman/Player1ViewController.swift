@@ -34,6 +34,9 @@ class Player1ViewController: UIViewController {
             return
         }
         hangman = player2VC.hangman
+        hangman.dashedWords = [String]()
+        hangman.userTries = 0
+//        player1WordEnter.text = ""
     }
 
 }
