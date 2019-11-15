@@ -34,15 +34,13 @@ extension Player2ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == player2Guess {
         hangman.checkWords(guess: string)
-            
-         
+        dashedLabel.text = hangman.dashedWords.joined(separator: " ")
     }
         return true
 }
