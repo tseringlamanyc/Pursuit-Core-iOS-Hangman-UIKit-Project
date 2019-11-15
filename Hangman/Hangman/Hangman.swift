@@ -12,6 +12,7 @@ class Hangman {
     
     var userTries = 0
     var player1Word = ""
+    var player2Guess = ""
     var didWin = true
     var dashedWords = [String]()
     
