@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Player1VC: UIViewController {
+class Player1ViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var player1Word: UILabel!
@@ -18,9 +18,19 @@ class Player1VC: UIViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
+    player1WordEnter.delegate = self
     
   }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let player2VC = segue.destination as? Player2ViewController else {
+            return 
+        }
+    }
 
+}
+
+extension Player1ViewController: UITextFieldDelegate{
+    
 }
 
