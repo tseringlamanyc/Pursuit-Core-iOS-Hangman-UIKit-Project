@@ -113,6 +113,13 @@
                                 <rect key="frame" x="136" y="354" width="143" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o23-UU-Pz6">
+                                <rect key="frame" x="20" y="307" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Tyg-HW-C8v"/>
@@ -123,6 +130,7 @@
                         <outlet property="hangImage" destination="q3G-lM-KwM" id="KAL-6i-TiB"/>
                         <outlet property="playAgain" destination="WTv-xl-IgQ" id="C8I-y5-GAY"/>
                         <outlet property="player2Guess" destination="kLF-VA-RAH" id="wtM-O3-hfK"/>
+                        <outlet property="turnLabel" destination="o23-UU-Pz6" id="XBn-wS-CPf"/>
                         <outlet property="welcomeLabel2" destination="U2O-Sc-1Fo" id="npF-RM-Uwv"/>
                     </connections>
                 </viewController>

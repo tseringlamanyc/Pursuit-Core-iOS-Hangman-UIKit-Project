@@ -15,86 +15,84 @@ class Player2ViewController: UIViewController {
     @IBOutlet weak var player2Guess: UITextField!
     @IBOutlet weak var hangImage: UIImageView!
     @IBOutlet weak var playAgain: UIButton!
+    @IBOutlet weak var turnLabel: UILabel!
     
     var hangman = Hangman()
-    var p1VC = Player1ViewController()
     var arr = [String]()
     
     override func viewDidLoad() {
-    super.viewDidLoad()
-    player2Guess.delegate = self
-    arr = hangman.getDashedWords(enteredString: hangman.player1Word)
-    dashedLabel.text = arr.joined(separator: " ")
-    hangImage.image = #imageLiteral(resourceName: "hang1")
+        super.viewDidLoad()
+        player2Guess.delegate = self
+        arr = hangman.getDashedWords(enteredString: hangman.player1Word)
+        dashedLabel.text = arr.joined(separator: " ")
+        hangImage.image = #imageLiteral(resourceName: "hang1")
+        turnLabel.text = "Turns 6"
     }
     
     func showHang (chances: Int) {
-          switch chances {
-          case 0:
-              hangImage.image = #imageLiteral(resourceName: "hang1")
-          case 1:
-             hangImage.image = #imageLiteral(resourceName: "hang3")
-          case 2:
-             hangImage.image = #imageLiteral(resourceName: "hang3")
-          case 3:
-              hangImage.image = #imageLiteral(resourceName: "hang4")
-          case 4:
-              hangImage.image = #imageLiteral(resourceName: "hang5")
-          case 5:
-             hangImage.image = #imageLiteral(resourceName: "hang6")
-          case 6:
-              hangImage.image = #imageLiteral(resourceName: "hang7")
-          default:
-              hangImage.image = #imageLiteral(resourceName: "hang1")
-          }
-      }
-    
-    
+        switch chances {
+//        case 0:
+//            hangImage.image = #imageLiteral(resourceName: "hang1")
+        case 1:
+            hangImage.image = #imageLiteral(resourceName: "hang2")
+        case 2:
+            hangImage.image = #imageLiteral(resourceName: "hang3")
+        case 3:
+            hangImage.image = #imageLiteral(resourceName: "hang4")
+        case 4:
+            hangImage.image = #imageLiteral(resourceName: "hang5")
+        case 5:
+            hangImage.image = #imageLiteral(resourceName: "hang6")
+        case 6:
+            hangImage.image = #imageLiteral(resourceName: "hang7")
+        default:
+            hangImage.image = #imageLiteral(resourceName: "hang1")
+        }
+    }
 }
 
 extension Player2ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         player2Guess.text? = ""
         player2Guess.text?.removeAll()
+        if dashedLabel.text == hangman.player1Word {
+            welcomeLabel2.text = "You Win"
+        }
         textField.resignFirstResponder()
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-//        textField.resignFirstResponder()
         
         if let char = string.cString(using: String.Encoding.utf8) {
             let isBackSpace = strcmp(char, "\\b")
             if (isBackSpace == -92) {
-//                player2Guess.text? = ""
-//                player2Guess.text?.removeAll()
                 return false
             } else {
                 if string.count > 1 {
-//                    player2Guess.text? = ""
-//                    player2Guess.text?.removeAll()
                     return false
                 }
             }
         }
-           
-        if textField == player2Guess {
-        let chances = hangman.userTries
-        hangman.checkWords(guess: string)
-            print("here")
-//        player2Guess.text? = ""
-//        player2Guess.text?.removeAll()
         
-        showHang(chances: chances)
-        if chances == 6 {
+        if textField == player2Guess {
+            let chances = hangman.userTries
+//            let player1Choice = hangman.player1Word
+            hangman.checkWords(guess: string)
+            showHang(chances: chances)
+            turnLabel.text = "Turns \(6 - chances)"
+            if chances == 6 {
                 welcomeLabel2.text = "GAME OVER!!!"
+                player2Guess.isHidden = true
             }
-        dashedLabel.text = hangman.dashedWords.joined(separator: " ")
-    }
-//        player2Guess.text? = ""
-//        player2Guess.text?.removeAll()
+//            if dashedLabel.text == player1Choice.description {
+//                welcomeLabel2.text = "You Win"
+//            }
+            dashedLabel.text = hangman.dashedWords.joined(separator: " ")
+        }
         return true
-}
+    }
 }

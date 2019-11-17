@@ -36,25 +36,5 @@ class Hangman {
         }
     }
     
-//    func showHang (chances: Int) {
-//        switch chances {
-//        case 0:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang1")
-//        case 1:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang3")
-//        case 2:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang3")
-//        case 3:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang4")
-//        case 4:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang5")
-//        case 5:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang6")
-//        case 6:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang7")
-//        default:
-//            viewController.hangImage.image = #imageLiteral(resourceName: "hang1")
-//        }
-//    }
-    
+
 }
